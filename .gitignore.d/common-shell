@@ -1,0 +1,8 @@
+*
+!/.gitignore.d/
+!/.gitignore.d/common-shell
+!/.shell/
+!/.shell/rc.d/
+!/.shell/rc.d/*.sh
+!/.shell/login.d/
+!/.shell/login.d/*.sh
