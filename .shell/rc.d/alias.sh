@@ -101,9 +101,6 @@ alias now='date +"%T'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
 
-# python
-alias pipup="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
-
 # Cygwin
 
 alias open=cygstart
