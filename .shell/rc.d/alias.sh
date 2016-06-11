@@ -31,7 +31,6 @@ alias ...='cd ../.. && ls'
 alias ....='cd ../../.. && ls'
 alias .....='cd ../../../.. && ls'
 alias back='cd $OLDPWD && ls'
-alias extract='tar -zxvf'
 
 ## permissions
 alias mx='chmod a+x'
