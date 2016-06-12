@@ -8,20 +8,25 @@ if [[ $OSTYPE == "linux" ]]; then
   elif which nano &> /dev/null; then
     export EDITOR="nano"
   fi
-  ed() {
-  $EDITOR $@
-  }
 elif [[ $OSTYPE == "cygwin" ]]; then
-  export  EDITOR='"C:/Program Files (x86)/Notepad++/notepad++.exe" -multiInst -nosession $(cygpath -w "$@")'
-  ed () {
-    "C:/Program Files (x86)/Notepad++/notepad++.exe" $(cygpath -w -a $@) &
-  }
+  NOTEPAD="C:/PROGRA~2/Notepad++/notepad++.exe"
+  CNOTEPAD=$(cygpath -u -a $NOTEPAD)
+  if [[ -a $CNOTEPAD ]]; then
+    export EDITOR="$NOTEPAD"' -multiInst -nosession $(cygpath -w "$@")'
+    # ed () {
+      # $NOTEPAD $(cygpath -w -a $@) &
+    # }
+  elif which vi &> /dev/null; then
+    export EDITOR="vi"
+  fi
 fi
 
-# ed () {
-# if [[ $OSTYPE == "linux" ]]; then
-  # $EDITOR $@
-# elif [[ $OSTYPE == "cygwin" ]]; then
-  # $EDITOR $@ &
-# fi
-# }
+ed () {
+  if test "$@" == ""
+  then
+      $(eval $EDITOR .) &
+  else
+      $(eval $EDITOR $@) &
+  fi
+}
+
