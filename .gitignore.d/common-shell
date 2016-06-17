@@ -6,3 +6,5 @@
 !/.shell/rc.d/*.sh
 !/.shell/login.d/
 !/.shell/login.d/*.sh
+!/.shell/source.d/
+!/.shell/source.d/*.sh
