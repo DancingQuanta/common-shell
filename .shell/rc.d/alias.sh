@@ -100,12 +100,6 @@ alias now='date +"%T'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
 
-# Cygwin
-
-alias open=cygstart
-
-alias wiki='cd /cygdrive/c/Users/andre/Dropbox/wiki'
-
 # Authoring
 
 alias texspell='aspell --lang=en_GB --mode=tex check'
