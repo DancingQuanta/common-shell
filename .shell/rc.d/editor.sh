@@ -13,20 +13,19 @@ elif [[ $OSTYPE == "cygwin" ]]; then
   CNOTEPAD=$(cygpath -u -a $NOTEPAD)
   if [[ -a $CNOTEPAD ]]; then
     export EDITOR="$NOTEPAD"' -multiInst -nosession $(cygpath -w "$@")'
-    # ed () {
-      # $NOTEPAD $(cygpath -w -a $@) &
-    # }
+    ed () {
+      if test "$@" == ""; then  
+        $(eval $EDITOR .) &
+      else
+        $(eval $EDITOR $@) &
+      fi
+    }
   elif which vi &> /dev/null; then
     export EDITOR="vi"
   fi
 fi
 
 ed () {
-  if test "$@" == ""
-  then
-      $(eval $EDITOR .) &
-  else
-      $(eval $EDITOR $@) &
-  fi
+  $EDITOR $@
 }
 
