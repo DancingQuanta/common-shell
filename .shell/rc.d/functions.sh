@@ -142,11 +142,6 @@ datediff() {
     echo $(( ($(date -u -d $1 +%s) - $(date -u -d $2 +%s)) / 86400)) 
 }
 
-gmd() {
-# Grep in markdown files
-grep "$1" -r --include="*.md" .
-}
-
 gmm() {
 # Grep in mm files
 grep "$1" -r --include="*.mm" .
@@ -157,7 +152,7 @@ gtxt() {
 grep "$1" -r --include="*.txt" .
 }
 
-pdfgrep() {
+gpdf() {
 find . -name '*.pdf' -exec sh -c 'pdftotext "{}" - | grep --with-filename --label="{}" --color "'"$@"'"' \;
 }
 
