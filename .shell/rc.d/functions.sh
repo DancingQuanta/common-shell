@@ -80,11 +80,6 @@ cdls() {
 	cd "$@" && ls
 }
 
-## Delete a directory
-rmdir() {
-	rm -rf $@
-}
-
 ## Find something
 ff() {
 	find . -name $@ -print
@@ -199,3 +194,12 @@ extract () {
     echo "'$1' is not a valid file"
   fi
 }
+
+# Search and replace in any files, except hidden directories
+sr() {
+  echo "Replacing $1 with $2"
+  find . -type f -not -path '*/\.*' -exec \
+    sed -i 's/'$1'/'$2'/g' {} +
+}
+
+
