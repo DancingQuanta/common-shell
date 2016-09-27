@@ -26,7 +26,6 @@ append_path() {
 
 # Set paths
 
-prepend_path "$HOME/bin"
 if [[ -f $HOME/.path ]]; then
   source $HOME/.path
 fi
