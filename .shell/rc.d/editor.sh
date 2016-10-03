@@ -1,6 +1,6 @@
 # set editor
 
-if [[ $OSTYPE == "linux" ]]; then
+if [[ $OSTYPE == linux* ]]; then
   if which vim &> /dev/null; then
     export EDITOR="vim"
   elif which vi &> /dev/null; then
