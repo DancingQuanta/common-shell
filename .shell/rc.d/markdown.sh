@@ -2,9 +2,14 @@
 
 # Helper functions for markdown files
 
-# Search in files
+# Search in markdown files
 gmd() {
   grep "$1" -r --include="*.md" .
+}
+
+# Search in rst files
+grst() {
+  grep "$1" -r --include="*.rst" .
 }
 
 # Search and replace in markdown files
