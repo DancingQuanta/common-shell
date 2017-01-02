@@ -12,6 +12,11 @@ grst() {
   grep "$1" -r --include="*.rst" .
 }
 
+guni() {
+  grep '[^\x00-\x7F]' -r --color='auto' -P -n --include="*.md" .
+}
+
+
 # Search and replace in markdown files
 srmd() {
   echo "Replacing $1 with $2"
