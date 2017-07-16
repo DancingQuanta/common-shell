@@ -29,3 +29,8 @@ append_path() {
 if [[ -f $HOME/.path ]]; then
   source $HOME/.path
 fi
+
+# Usual paths
+
+prepend_path "$HOME/bin/"
+
