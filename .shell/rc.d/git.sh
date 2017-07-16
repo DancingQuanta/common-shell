@@ -9,7 +9,9 @@ fi
 }
 
 # Github hub
-alias git=hub
+if which hub &> /dev/null; then
+  alias git=hub
+fi
 
 # BFG repo-cleaner
 BFG=$HOME/bin/bfg.jar
