@@ -13,7 +13,7 @@ quiet_which() {
 
 # Start agent on login
 if which keychain &> /dev/null; then
-  eval $(keychain --eval ~/.ssh/master/*_rsa 1E8030A9)
+  eval $(keychain --eval --agents gpg,ssh ~/.ssh/master/*_rsa 1E8030A9)
 elif which ssh-agent &> /dev/null; then
   SSHAGENT=$(which ssh-agent)
   SSHAGENTARGS="-s"
