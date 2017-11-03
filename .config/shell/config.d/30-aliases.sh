@@ -4,13 +4,13 @@
 ## shell agnostic aliases
 
 # trick to make aliases available when using sudo
-alias sudo='sudo '
+[[ -x $(command -v sudo) ]] && alias sudo='sudo '
 
 # Change default shell
 alias changeshell='chsh -s $(which $1) && $1'
 
 # Go to personal bin folder
-alias bin='cd ~/bin'
+alias bin='cd ~/.local/bin'
 
 # Filesystem actions
 for c in cp rm ln chmod chown rename; do
@@ -53,27 +53,15 @@ alias nocomment='grep -Ev '\''^(#|$)'\'''
 alias less='less -N'
 
 # syntax highlight
-if which pygmentize &> /dev/null; then
-  alias hcat='pygmentize -g -O style=trac -f terminal256'
-fi
+[[ -x $(command -v pygmentize) ]] && alias hcat='pygmentize -g -O style=trac -f terminal256'
 
 # use colordiff if available
-if which colordiff &> /dev/null; then
-  alias diff='colordiff'
-fi
+[[ -x $(command -v pygmentize) ]] && alias diff='colordiff'
 
 # hexdump using od
 alias hd='od -Ax -tx1z -v'
 
 alias rsync="rsync --partial --progress --human-readable --compress"
-
-# alias for using rsync with sudo and ssh
-alias rrsync='rsync --rsync-path sudo\ rsync -rvze ssh'
-
-## System
-
-alias poweroff='sudo shutdown -h now'
-alias reboot='sudo shutdown -r now'
 
 #System info
 alias name='uname -srvmo'
@@ -109,18 +97,17 @@ alias texspell='aspell --lang=en_GB --mode=tex check'
 # Edit aliases and functions
 
 # Location of aliases and functions
-alias aliasesloc="$HOME/.shell/aliases.sh"
-alias functionsloc="$HOME/.shell/functions.sh"
+alias aliasesloc="$HOME/.config/shell/config.d/30-aliases.sh"
+alias functionsloc="$HOME/.config/shell/config.d/40-functions.sh"
 
 # Edit aliases and activate the changes
-alias aliases='sudo $EDITOR $aliasesloc && source $aliasesloc'
+alias aliases='$EDITOR $aliasesloc && source $aliasesloc'
 
 # Show aliases
 alias showaliases='more $aliasesloc'
 
 # Edit functions and activate the changes
-alias functions='sudo $EDITOR $functionsloc && source $functionsloc'
+alias functions='$EDITOR $functionsloc && source $functionsloc'
 
 # Show functions
 alias showfunctions='more $functionsloc'
-
