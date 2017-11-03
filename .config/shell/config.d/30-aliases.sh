@@ -1,6 +1,7 @@
-##########
-# Aliases
-##########
+#!/usr/bin/env sh
+## DancingQuanta/shell-config - https://github.com/DancingQuanta/shell-config
+## 30-aliases.sh
+## shell agnostic aliases
 
 # trick to make aliases available when using sudo
 alias sudo='sudo '

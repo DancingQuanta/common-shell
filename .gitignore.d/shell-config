@@ -1,0 +1,15 @@
+*
+!/.gitignore.d/
+!/.gitignore.d/shell-config
+!/.config/
+!/.config/mr
+!/.config/mr/available.d
+!/.config/mr/available.d/shell-config.vcsh
+!/.config/mr/config.d
+!/.config/mr/config.d/shell-config.vcsh
+!/.config/shell
+!/.config/shell/config.d
+!/.config/shell/config.d/*
+!/.config/shell/profile.d
+!/.config/shell/profile.d/*
+~/.config/user-dirs.dirs
