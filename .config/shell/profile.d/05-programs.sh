@@ -31,10 +31,7 @@ export TIME_STYLE="long-iso"
 # Go environment
   
 export GOPATH=$HOME/go
-  
-if [[ $OSTYPE == "cygwin" ]]; then
-  export GOPATH=$(cygpath -aw $GOPATH)
-fi
+[[ $OSTYPE == "cygwin" ]] && export GOPATH=$(cygpath -aw $GOPATH)
 
 # append above paths to PATH if directory exists and it is not yet in PATH
 if [[ $UID -ge 1000 ]] && [[ -d "$GOROOT/bin" ]] && [[ -z $(echo $PATH | grep -o "$GOROOT/bin") ]]; then
