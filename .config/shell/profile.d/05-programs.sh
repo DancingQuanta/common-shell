@@ -45,4 +45,4 @@ if [[ $UID -ge 1000 ]] && [[ -d "$GOPATH/bin" ]] && [[ -z $(echo $PATH | grep -o
 fi
 
 # Github hub
-[[ -x $(command -v hub) ]] && alias git=hub
+[[ -x $(command -v hub) ]] && eval "$(hub alias -s)"
