@@ -1,6 +1,7 @@
 *
 !/.gitignore.d/
 !/.gitignore.d/shell-config
+!/.profile
 !/.config/
 !/.config/mr
 !/.config/mr/available.d
