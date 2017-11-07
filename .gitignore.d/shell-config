@@ -13,4 +13,5 @@
 !/.config/shell/config.d/*
 !/.config/shell/profile.d
 !/.config/shell/profile.d/*
-~/.config/user-dirs.dirs
+!/.config/user-dirs.dirs
+
