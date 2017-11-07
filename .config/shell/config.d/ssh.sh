@@ -117,14 +117,14 @@ HEREDOC
       -t rsa \
       -b 4096 \
       -C "${_remote_host}_id_rsa" \
-      -f "${HOME}/.ssh/${_local_host}_${_remote_host}_id_rsa"
+      -f "${HOME}/.ssh/master/${_local_host}_${_remote_host}_id_rsa"
   else
     _username="$(echo "${1}" | awk -F '@' '{print $1}')"
     ssh-keygen \
       -t rsa \
       -b 4096 \
       -C "${_username}@${_remote_host}_id_rsa" \
-      -f "${HOME}/.ssh/${_local_host}_${_username}@${_remote_host}_id_rsa"
+      -f "${HOME}/.ssh/master/${_local_host}_${_username}@${_remote_host}_id_rsa"
   fi
 }
 
@@ -134,9 +134,9 @@ HEREDOC
 #   ssh_keys [<key.pub>]
 #
 # Description:
-#   Print the filename of each public key file in the ~/.ssh directory. If an
-#   argument is provided, the public key with a filename matching the argument
-#   is printed.
+#   Print the filename of each public key file in the ~/.ssh/master directory.
+#   If an argument is provided, the public key with a filename matching the 
+#   argument is printed.
 ssh_keys() {
   if [[ "${1:-}" =~ '^-h|--help$' ]]
   then
@@ -145,9 +145,9 @@ Usage:
   ssh_keys [<key.pub>]
 
 Description:
-  Print the filename of each public key file in the ~/.ssh directory. If an
-  argument is provided, the public key with a filename matching the argument
-  is printed.
+   Print the filename of each public key file in the ~/.ssh/master directory.
+   If an argument is provided, the public key with a filename matching the 
+   argument is printed.
 HEREDOC
     return 0
   fi
@@ -156,7 +156,7 @@ HEREDOC
 
   if [[ -n "${_public_key}" ]]
   then
-    local _public_key_path="${HOME}/.ssh/${_public_key}"
+    local _public_key_path="${HOME}/.ssh/master/${_public_key}"
 
     if [[ -e "${_public_key_path}" ]]
     then
@@ -166,7 +166,7 @@ HEREDOC
       return 1
     fi
   else
-    for _file_path in "${HOME}/.ssh"/*
+    for _file_path in "${HOME}/.ssh/master"/*
     do
       if [[ "${_file_path}" =~ pub$ ]]
       then

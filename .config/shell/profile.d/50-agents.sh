@@ -3,7 +3,7 @@
 ## This file sets up SSH and GPG agentsfor the shell
 
 if which keychain &> /dev/null; then
-  eval $(keychain --eval --agents gpg,ssh ~/.ssh/*_rsa 1E8030A9)
+  eval $(keychain --eval --agents gpg,ssh ~/.ssh/master/*id_rsa 1E8030A9)
 elif which ssh-agent &> /dev/null; then
   SSHAGENT=$(which ssh-agent)
   SSHAGENTARGS="-s"
