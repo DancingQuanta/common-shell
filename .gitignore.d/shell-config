@@ -14,4 +14,7 @@
 !/.config/shell/profile.d
 !/.config/shell/profile.d/*
 !/.config/user-dirs.dirs
-
+!/.ssh/
+!/.ssh/default.sshconfig
+!/.ssh/config.d/
+!/.ssh/config.d/.gitkeep
