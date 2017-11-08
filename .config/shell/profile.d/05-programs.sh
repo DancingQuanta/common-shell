@@ -40,6 +40,3 @@ fi
 if [[ $UID -ge 1000 ]] && [[ -d "$GOPATH/bin" ]] && [[ -z $(echo $PATH | grep -o "$GOPATH/bin") ]]; then
     export PATH=$PATH:"$GOPATH/bin"
 fi
-
-# Github hub
-[[ -x $(command -v hub) ]] && eval "$(hub alias -s)"
