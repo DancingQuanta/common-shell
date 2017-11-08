@@ -9,3 +9,13 @@ if [[ -d "$HOME/.config/shell/profile.d/" ]]; then
 	done
 	unset profile
 fi
+
+# Local configuration
+
+# load profile files from $HOME/.config/shell/profile-local.d
+if [[ -d "$HOME/.config/shell/profile-local.d/" ]]; then
+	for profile_local in $HOME/.config/shell/profile-local.d/*.sh; do
+		test -r "$profile_local" && . "$profile_local"
+	done
+	unset profile_local 
+fi

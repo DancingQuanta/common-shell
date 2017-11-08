@@ -11,8 +11,12 @@
 !/.config/shell
 !/.config/shell/config.d
 !/.config/shell/config.d/*
+!/.config/shell/config-local.d
+!/.config/shell/config-local.d/.gitkeep
 !/.config/shell/profile.d
 !/.config/shell/profile.d/*
+!/.config/shell/profile-local.d
+!/.config/shell/profile-local.d/.gitkeep
 !/.config/user-dirs.dirs
 !/.ssh/
 !/.ssh/default.sshconfig
