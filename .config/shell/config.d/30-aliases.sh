@@ -13,12 +13,12 @@ alias changeshell='chsh -s $(which $1) && $1'
 alias bin='cd ~/.local/bin'
 
 # Filesystem actions
-for c in cp rm ln chmod chown rename; do
+for c in chmod chown rename; do
     alias $c="$c -v"
 done
 
 for a in cp rm ln; do
-    alias $a="$a -i"
+    alias $a="$a -iv"
 done
 
 alias ls='ls --color=auto'
@@ -27,11 +27,6 @@ alias vdir='vdir --color=auto'
 alias ll='ls -hal'
 alias la='ls -A'
 alias l='ls -CF'
-alias ..='cd .. && ls'
-alias ...='cd ../.. && ls'
-alias ....='cd ../../.. && ls'
-alias .....='cd ../../../.. && ls'
-alias back='cd $OLDPWD && ls'
 
 ## permissions
 alias mx='chmod a+x'
@@ -61,6 +56,7 @@ alias less='less -N'
 # hexdump using od
 alias hd='od -Ax -tx1z -v'
 
+# Rsync
 alias rsync="rsync --partial --progress --human-readable --compress"
 
 #System info
@@ -88,10 +84,6 @@ alias psc='ps xawfo pid,user,args'
 alias now='date +"%T'
 alias nowtime='now'
 alias nowdate='date +"%d-%m-%Y"'
-
-# Authoring
-
-alias texspell='aspell --lang=en_GB --mode=tex check'
 
 ## Aliases and functions
 # Edit aliases and functions

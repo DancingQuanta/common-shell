@@ -75,11 +75,6 @@ native() {
 	sed -i s/{ctrl+v}{ctrl+m}// $1
 }
 
-##Everytime you change directory, list files and directory
-cdls() {
-	cd "$@" && ls
-}
-
 ## Find something
 ff() {
 	find . -name $@ -print
@@ -137,33 +132,6 @@ datediff() {
     echo $(( ($(date -u -d $1 +%s) - $(date -u -d $2 +%s)) / 86400)) 
 }
 
-gmm() {
-# Grep in mm files
-grep "$1" -r --include="*.mm" .
-}
-
-gtxt() {
-# Grep in txt files
-grep "$1" -r --include="*.txt" .
-}
-
-gpdf() {
-find . -name '*.pdf' -exec sh -c 'pdftotext "{}" - | grep --with-filename --label="{}" --color "'"$@"'"' \;
-}
-
-pdfdia() {
-find . -name '*.pdf' | while read -r f
-	do
-	#ERR=
-	if $((pdftotext "$f" - > /dev/null) 2>&1) &> /dev/null; then
-		echo "$f" was ok;
-	else
-		mv "$f" "$f.broken";
-		echo "$f is broken";   
-	fi;
-	done
-}
-
 gpgcheckpass() {
 echo $2 | gpg -q --sign --local-user "$1" --passphrase-fd 0 --output /dev/null --yes "1234" && (echo 'CORRECT passphrase' && break)
 }
@@ -193,13 +161,6 @@ extract () {
   else
     echo "'$1' is not a valid file"
   fi
-}
-
-# Search and replace in any files, except hidden directories
-sr() {
-  echo "Replacing $1 with $2"
-  find . -type f -not -path '*/\.*' -exec \
-    sed -i 's/'$1'/'$2'/g' {} +
 }
 
 recent() {
