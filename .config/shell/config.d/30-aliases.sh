@@ -48,10 +48,10 @@ alias nocomment='grep -Ev '\''^(#|$)'\'''
 alias less='less -N'
 
 # syntax highlight
-[[ -x $(command -v pygmentize) ]] && alias hcat='pygmentize -g -O style=trac -f terminal256'
+[ -x "$(command -v pygmentize)" ] && alias hcat='pygmentize -g -O style=trac -f terminal256'
 
 # use colordiff if available
-[[ -x $(command -v pygmentize) ]] && alias diff='colordiff'
+[ -x "$(command -v colordiff)" ] && alias diff='colordiff'
 
 # hexdump using od
 alias hd='od -Ax -tx1z -v'
