@@ -25,6 +25,16 @@ export LESSHISTFILE=-
 export LESS='-R'
 export TIME_STYLE="long-iso"
 
+# Conda
+CONDA_HOME="$HOME/miniconda3"
+CONDA_BIN="$CONDA_HOME/bin"
+CONDA_SCRIPTS="$CONDA_HOME/Scripts"
+CONDA_LIBRARY="$CONDA_HOME/Library/bin"
+CONDA_PACKAGES="$CONDA_HOME/Lib/site-packages"
+if [[ $UID -ge 1000 ]] && [[ -d "$CONDA_BIN" ]] && [[ -z $(echo $PATH | grep -o "$CONDA_BIN") ]]; then
+    export PATH=$PATH:"$CONDA_BIN"
+fi
+
 # Hook direnv on shells
 [[ -x $(command -v direnv) ]] && export eval "$(direnv hook $SHELL)"
 
