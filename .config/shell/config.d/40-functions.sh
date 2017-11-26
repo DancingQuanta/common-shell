@@ -14,11 +14,11 @@ pspid() { ps xao pid,args |grep -v grep |grep -i "$@" |awk '{print $1}'; }
 #Search processes
 searchps() {
 if [ ! -z $1 ] ; then
-	echo "Grepping for processes matching $1..."
-	ps aux | head -n 1
-	ps aux | grep $1 | grep -v grep
+  echo "Grepping for processes matching $1..."
+  ps aux | head -n 1
+  ps aux | grep $1 | grep -v grep
 else
-	echo "!! Need name to grep for"
+  echo "!! Need name to grep for"
 fi
 }
 
@@ -44,9 +44,9 @@ pskill() {
 cpg () {
 if [ -d "$2" ]
 then
-	cp $1 $2 && cd $2
+  cp $1 $2 && cd $2
 else
-	cp $1 $2
+  cp $1 $2
 fi
 }
 
@@ -54,45 +54,44 @@ fi
 mvg () {
 if [ -d "$2" ]
 then
-	mv $1 $2 && cd $2
+  mv $1 $2 && cd $2
 else
-	mv $1 $2
+  mv $1 $2
 fi
 }
 
 #backup file
 backup() {
-	mv $1{,.bak}
+  mv $1{,.bak}
 }
 
 # Reverse to backup, restore!!!
 restore() {
-	mv $1{.bak,}
+  mv $1{.bak,}
 }
 
 ##Make sure the file is linux readable!! Screw DOS! Replace DOS line ending with linux EOL
 native() {
-	sed -i s/{ctrl+v}{ctrl+m}// $1
+  sed -i s/{ctrl+v}{ctrl+m}// $1
 }
 
 ## Find something
 ff() {
-	find . -name $@ -print
+  find . -name $@ -print
 }
 
 # Find top largest files
 large() {
-	find / -type f -size +10000k -exec ls -lh {} \; | awk '{ print $NF ": " $5 }'
+  find / -type f -size +10000k -exec ls -lh {} \; | awk '{ print $NF ": " $5 }'
 }
 
 ## prevent grep adding line numbers to standard output to pipe eg check it output is to tty or not
 ngrep() {
-	if [[ -t 0 && -t 1 ]]
-	then 
-        command grep -n "$@"
-    else 
-        command grep "$@"
-    fi
+  if [[ -t 0 && -t 1 ]]; then 
+    command grep -n "$@"
+  else 
+    command grep "$@"
+  fi
 }
 alias grep='ngrep'
 
@@ -108,11 +107,11 @@ top -p $(pgrep -d , $1)
 
 ## Time a process
 timeps() {
-	time $@ -i -c exit
+  time $@ -i -c exit
 }
 
 viewps() {
-	/usr/bin/time $@ -v
+  /usr/bin/time $@ -v
 }
 
 man() {

@@ -14,7 +14,7 @@ alias bin='cd ~/.local/bin'
 
 # Filesystem actions
 for c in chmod chown rename; do
-    alias $c="$c -v"
+  alias $c="$c -v"
 done
 
 for a in cp rm ln; do
