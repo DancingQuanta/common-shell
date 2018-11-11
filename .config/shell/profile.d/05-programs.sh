@@ -26,15 +26,10 @@ export LESS='-R'
 export TIME_STYLE="long-iso"
 
 # Conda
-CONDA_HOME="$HOME/miniconda3"
-CONDA_BIN="$CONDA_HOME/bin"
-CONDA_SCRIPTS="$CONDA_HOME/Scripts"
-CONDA_LIBRARY="$CONDA_HOME/Library/bin"
-CONDA_PACKAGES="$CONDA_HOME/Lib/site-packages"
-prepend_path $CONDA_BIN
-prepend_path $CONDA_SCRIPTS
-prepend_path $CONDA_LIBRARY
-prepend_path $CONDA_PACKAGES
+if [[ -x $(command -v conda) ]]; then
+  source $HOME/miniconda3/etc/profile.d/conda.sh
+  conda activate
+fi
 
 # Hook direnv on shells
 [[ -x $(command -v direnv) ]] && export eval "$(direnv hook $SHELL)"
