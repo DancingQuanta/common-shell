@@ -26,7 +26,12 @@ export LESS='-R'
 export TIME_STYLE="long-iso"
 
 # Conda
-CONDA_SH="$HOME/miniconda3/etc/profile.d/conda.sh"
+CONDA_HOME="$HOME/miniconda3"
+CONDA_BIN="$CONDA_HOME/bin"
+CONDA_SCRIPTS="$CONDA_HOME/Scripts"
+CONDA_LIBRARY="$CONDA_HOME/Library/bin"
+CONDA_PACKAGES="$CONDA_HOME/Lib/site-packages"
+CONDA_SH="$CONDA_HOME/etc/profile.d/conda.sh"
 if [[ -f $CONDA_SH ]]; then
   source $CONDA_SH
   conda activate
