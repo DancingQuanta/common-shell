@@ -26,8 +26,9 @@ export LESS='-R'
 export TIME_STYLE="long-iso"
 
 # Conda
-if [[ -x $(command -v conda) ]]; then
-  source $HOME/miniconda3/etc/profile.d/conda.sh
+CONDA_SH="$HOME/miniconda3/etc/profile.d/conda.sh"
+if [[ -f $CONDA_SH ]]; then
+  source $CONDA_SH
   conda activate
 fi
 
