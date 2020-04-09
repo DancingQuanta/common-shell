@@ -1,1 +1,8 @@
-../available.d/shell-config.vcsh
+## DancingQuanta/shell-config - https://github.com/DancingQuanta/shell-config
+## shell-config.vcsh
+## Setup DancingQuanta/shell-config and dependant repositories
+
+### MAIN REPOSITORY - cloned via vcsh
+# shell-config
+[$HOME/.config/vcsh/repo.d/shell-config.git]
+checkout = vcsh clone https://github.com/DancingQuanta/shell-config
