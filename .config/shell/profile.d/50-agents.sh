@@ -16,3 +16,13 @@ elif [[ -x $(command -v ssh-agent) ]]; then
     trap "kill $SSH_AGENT_PID" 0
   fi
 fi
+
+function start_gpg_agent()
+{
+    # Make sure that the gpg-agent is running since ssh-pageant does not know how to start it.
+    gpgconf --launch gpg-agent
+    # Start ssh-pageant, use -r to reuse the "socket" if it exists.
+    eval $(ssh-pageant -r -a "/tmp/S.ssh-pageant.$USERNAME") > /dev/null
+}
+export PATH="/c/Users/at17/scoop/apps/gpg4win/current/GnuPG/bin":$PATH
+[[ -z "$SSH_CONNECTION" ]] && start_gpg_agent
